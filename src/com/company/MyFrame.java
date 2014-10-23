@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import javax.swing.*;
 
 public class MyFrame extends JFrame {
@@ -71,6 +70,9 @@ public class MyFrame extends JFrame {
         bSign = new JButton("+/-");
         bCancel = new JButton("C");
 
+        /* issue #3 */
+        bSign.setEnabled(false);
+
         JPanel screenPanel = new JPanel(new FlowLayout());
         JPanel numPanel = new JPanel(new FlowLayout());
 
@@ -131,6 +133,10 @@ public class MyFrame extends JFrame {
         bDot.setBounds(70, 260, 55, 55);
         bSign.setBounds(130, 260, 55, 55);
         bPlus.setBounds(190, 260, 45, 55);
+
+        /* disable selecting */
+        screen.setSelectedTextColor(Color.black);
+        screen.setSelectionColor(getForeground());
     }
 
     private void initListeners() {
@@ -244,14 +250,19 @@ public class MyFrame extends JFrame {
     }
 
     private String parseDot0(String str) {
-        String integerPart = "";
-        String fractionalPart = "";
+        String integerPart;
+        String fractionalPart;
         if (str.contains(".") && !str.contains("E")) {
             integerPart = str.substring(0, str.indexOf("."));
-            fractionalPart = str.substring(str.indexOf(".") + 1);
-            for (int i = 0; i < str.length(); i++) {
-                if (str.charAt(i) == '0') {
-
+            fractionalPart = str.substring(str.indexOf("."));
+            for (int i = fractionalPart.length() - 1; i != -1; i--) {
+                if (fractionalPart.charAt(i) == '0') {
+                    continue;
+                } else {
+                    fractionalPart = fractionalPart.substring(0, i + 1);
+                    if (fractionalPart.charAt(i) == '.')
+                        return integerPart;
+                    return integerPart.concat(fractionalPart);
                 }
             }
         }
@@ -286,18 +297,25 @@ public class MyFrame extends JFrame {
             isResult = false;
         }
 
-
-        if (out.length() > 11) {
+        if (out.contains(".")) {
+            int intPartLength = out.substring(0, out.indexOf(".")).length();
+            int fractPartLength = out.substring(out.indexOf(".")).length();
+            if (intPartLength + fractPartLength >= 12) {
+                if (fractPartLength < 2 || intPartLength == 11) {
+                    out = out.substring(0, 11);
+                } else {
+                    out = out.substring(0, 12);
+                }
+            }
+        } else if (out.length() > 12) {
             out = "e" + out;
             out = out.substring(0, 12);
             error = true;
         }
-
         if (out.contains("E")) {
             out = "e";
             error = true;
         }
-
         screen.setText(out);
     }
 
