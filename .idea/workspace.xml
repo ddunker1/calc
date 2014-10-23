@@ -31,12 +31,53 @@
       <file leaf-file-name="MyFrame.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/MyFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54226804" vertical-offset="3052" max-vertical-offset="5220">
-              <caret line="257" column="43" selection-start-line="257" selection-start-column="43" selection-end-line="257" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.23298968" vertical-offset="2767" max-vertical-offset="3765">
+              <caret line="303" column="42" selection-start-line="303" selection-start-column="42" selection-end-line="303" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8018#8213#0" expanded="true" />
-                <element signature="e#8198#8199#0" expanded="true" />
+                <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+                <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+                <element signature="e#4521#4709#0" expanded="true" />
+                <element signature="e#4694#4695#0" expanded="true" />
+                <element signature="e#4747#4935#0" expanded="true" />
+                <element signature="e#4920#4921#0" expanded="true" />
+                <element signature="e#4975#5163#0" expanded="true" />
+                <element signature="e#5148#5149#0" expanded="true" />
+                <element signature="e#5202#5390#0" expanded="true" />
+                <element signature="e#5375#5376#0" expanded="true" />
+                <element signature="e#5429#5617#0" expanded="true" />
+                <element signature="e#5602#5603#0" expanded="true" />
+                <element signature="e#5655#5843#0" expanded="true" />
+                <element signature="e#5828#5829#0" expanded="true" />
+                <element signature="e#5883#6071#0" expanded="true" />
+                <element signature="e#6056#6057#0" expanded="true" />
+                <element signature="e#6111#6299#0" expanded="true" />
+                <element signature="e#6284#6285#0" expanded="true" />
+                <element signature="e#6338#6526#0" expanded="true" />
+                <element signature="e#6511#6512#0" expanded="true" />
+                <element signature="e#6565#6753#0" expanded="true" />
+                <element signature="e#6738#6739#0" expanded="true" />
+                <element signature="e#6791#6979#0" expanded="true" />
+                <element signature="e#6964#6965#0" expanded="true" />
+                <element signature="e#7018#7206#0" expanded="true" />
+                <element signature="e#7191#7192#0" expanded="true" />
+                <element signature="e#7244#7437#0" expanded="true" />
+                <element signature="e#7422#7423#0" expanded="true" />
+                <element signature="e#7476#7670#0" expanded="true" />
+                <element signature="e#7655#7656#0" expanded="true" />
+                <element signature="e#7710#7905#0" expanded="true" />
+                <element signature="e#7890#7891#0" expanded="true" />
+                <element signature="e#7944#8138#0" expanded="true" />
+                <element signature="e#8123#8124#0" expanded="true" />
+                <element signature="e#8178#8373#0" expanded="true" />
+                <element signature="e#8358#8359#0" expanded="true" />
+                <element signature="e#8410#8554#0" expanded="true" />
+                <element signature="e#8543#8544#0" expanded="true" />
+                <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+                <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+                <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+                <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+                <element signature="method#main#0;class#MyFrame#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -380,23 +421,23 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/MyFrame.java</url>
-          <line>245</line>
-          <properties class="com.company.MyFrame" method="parseDot0" />
-          <option name="timeStamp" value="70" />
+          <line>299</line>
+          <properties />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/MyFrame.java</url>
-          <line>263</line>
+          <line>319</line>
           <properties />
-          <option name="timeStamp" value="71" />
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="72" />
+      <option name="time" value="75" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -410,8 +451,49 @@
           <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -422,8 +504,49 @@
           <caret line="252" column="53" selection-start-line="252" selection-start-column="53" selection-end-line="252" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -434,8 +557,49 @@
           <caret line="275" column="33" selection-start-line="275" selection-start-column="33" selection-end-line="275" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -446,8 +610,49 @@
           <caret line="235" column="0" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -458,8 +663,49 @@
           <caret line="275" column="23" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -486,8 +732,49 @@
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -574,17 +861,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06185567" vertical-offset="0" max-vertical-offset="485">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MyFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54226804" vertical-offset="3052" max-vertical-offset="5220">
-          <caret line="257" column="43" selection-start-line="257" selection-start-column="43" selection-end-line="257" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.23298968" vertical-offset="2767" max-vertical-offset="3765">
+          <caret line="303" column="42" selection-start-line="303" selection-start-column="42" selection-end-line="303" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8018#8213#0" expanded="true" />
-            <element signature="e#8198#8199#0" expanded="true" />
+            <element signature="method#MyFrame#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#createGUI#0;class#MyFrame#0" expanded="false" />
+            <element signature="e#4521#4709#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4747#4935#0" expanded="true" />
+            <element signature="e#4920#4921#0" expanded="true" />
+            <element signature="e#4975#5163#0" expanded="true" />
+            <element signature="e#5148#5149#0" expanded="true" />
+            <element signature="e#5202#5390#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5429#5617#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
+            <element signature="e#5655#5843#0" expanded="true" />
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5883#6071#0" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6111#6299#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6338#6526#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+            <element signature="e#6565#6753#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6791#6979#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7018#7206#0" expanded="true" />
+            <element signature="e#7191#7192#0" expanded="true" />
+            <element signature="e#7244#7437#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7476#7670#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7710#7905#0" expanded="true" />
+            <element signature="e#7890#7891#0" expanded="true" />
+            <element signature="e#7944#8138#0" expanded="true" />
+            <element signature="e#8123#8124#0" expanded="true" />
+            <element signature="e#8178#8373#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="e#8410#8554#0" expanded="true" />
+            <element signature="e#8543#8544#0" expanded="true" />
+            <element signature="method#parseDot0#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#doCalc#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#isOperation#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#clearParams#0;class#MyFrame#0" expanded="false" />
+            <element signature="method#main#0;class#MyFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
