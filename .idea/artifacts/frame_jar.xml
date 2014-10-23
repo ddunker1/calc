@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="frame:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/frame_jar</output-path>
+    <root id="archive" name="frame.jar">
+      <element id="module-output" name="frame" />
+    </root>
+  </artifact>
+</component>

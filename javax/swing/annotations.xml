@@ -1,0 +1,5 @@
+<root>
+    <item name='javax.swing.JFrame EXIT_ON_CLOSE'>
+        <annotation name='java.lang.annotation.Deprecated'/>
+    </item>
+</root>
