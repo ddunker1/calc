@@ -70,8 +70,28 @@ public class MyFrame extends JFrame {
         bSign = new JButton("+/-");
         bCancel = new JButton("C");
 
-        /* issue #3 */
+        /* !!! issue #3 */
         bSign.setEnabled(false);
+
+        /* issue #9 */
+        bOne.setFocusPainted(false);
+        bTwo.setFocusPainted(false);
+        bThree.setFocusPainted(false);
+        bFour.setFocusPainted(false);
+        bFive.setFocusPainted(false);
+        bSix.setFocusPainted(false);
+        bSeven.setFocusPainted(false);
+        bEight.setFocusPainted(false);
+        bNine.setFocusPainted(false);
+        bDot.setFocusPainted(false);
+        bZero.setFocusPainted(false);
+        bMinus.setFocusPainted(false);
+        bPlus.setFocusPainted(false);
+        bMult.setFocusPainted(false);
+        bDiv.setFocusPainted(false);
+        bEqual.setFocusPainted(false);
+        bSign.setFocusPainted(false);
+        bCancel.setFocusPainted(false);
 
         JPanel screenPanel = new JPanel(new FlowLayout());
         JPanel numPanel = new JPanel(new FlowLayout());
