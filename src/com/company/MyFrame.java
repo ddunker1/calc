@@ -249,9 +249,10 @@ public class MyFrame extends JFrame {
         if (str.contains(".") && !str.contains("E")) {
             integerPart = str.substring(0, str.indexOf("."));
             fractionalPart = str.substring(str.indexOf(".") + 1);
-            for (int i = 0; i < str.length(); i++) {
-                if (str.charAt(i) == '0') {
-
+            for (int i = fractionalPart.length() - 1; i != -1; i--) {
+                if (fractionalPart.charAt(i) == '0') {
+                    if (fractionalPart.charAt(i - 1) == '0')
+                        
                 }
             }
         }
