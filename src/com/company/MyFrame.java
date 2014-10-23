@@ -247,18 +247,20 @@ public class MyFrame extends JFrame {
         String integerPart = "";
         String fractionalPart = "";
         if (str.contains(".") && !str.contains("E")) {
-            integerPart = str.substring(0, str.indexOf(".") + 1);
-            fractionalPart = str.substring(str.indexOf(".") + 1);
+            integerPart = str.substring(0, str.indexOf(".") );
+            fractionalPart = str.substring(str.indexOf("."));
             for (int i = fractionalPart.length() - 1; i != -1; i--) {
                 if (fractionalPart.charAt(i) == '0') {
                     continue;
                 } else {
                     fractionalPart = fractionalPart.substring(0, i + 1);
-                    break;
+                    if (fractionalPart.charAt(i) == '.')
+                        return integerPart;
+                    return integerPart.concat(fractionalPart);
                 }
             }
         }
-        return integerPart.concat(fractionalPart);
+        return str;
     }
 
     private void display(String instruction) {
