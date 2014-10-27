@@ -13,15 +13,12 @@ public class MyFrame extends JFrame {
     boolean error = false;
     boolean isOperationButtonWasPressed = false;
     boolean isResult = false;
-
     private final static String PLUS_OPER = "PLUS";
     private final static String MINUS_OPER = "MINUS";
     private final static String DIV_OPER = "DIV";
     private final static String MULT_OPER = "MULT";
     private final static String CANCEL_OPER = "CANCEL";
     private final static String EQUAL_OPER = "EQUAL";
-//    private final static String ERROR = "ERROR";
-
     private JTextField screen;
     private JButton bOne;   //1
     private JButton bTwo;   //2
@@ -296,7 +293,6 @@ public class MyFrame extends JFrame {
             else out = instruction;
             isResult = false;
         }
-
         if (out.contains(".")) {
             int intPartLength = out.substring(0, out.indexOf(".")).length();
             int fractPartLength = out.substring(out.indexOf(".")).length();
