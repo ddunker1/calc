@@ -2,6 +2,7 @@ package com.company;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import javax.swing.*;
 
@@ -44,6 +45,7 @@ public class MyFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createGUI();
         initListeners();
+        keyDispatcher();
     }
 
     public void createGUI() {
@@ -90,42 +92,29 @@ public class MyFrame extends JFrame {
         bSign.setFocusPainted(false);
         bCancel.setFocusPainted(false);
 
-        JPanel screenPanel = new JPanel(new FlowLayout());
-        JPanel numPanel = new JPanel(new FlowLayout());
-
+        JPanel screenPanel = new JPanel();
         screenPanel.setLayout(null);
-        numPanel.setLayout(null);
-
-        screenPanel.setBounds(0, 0, 295, 75);
-        numPanel.setBounds(0, 0, 0, 0);//???
-
         add(screenPanel);
-        add(numPanel);
-
-        screen.setEditable(false);
-        screen.setHorizontalAlignment(JTextField.RIGHT);
-        Font screenFont = new Font("Verdana", Font.TRUETYPE_FONT, 34);
-        screen.setFont(screenFont);
 
         screenPanel.add(screen);
-        numPanel.add(bSeven);
-        numPanel.add(bEight);
-        numPanel.add(bNine);
-        numPanel.add(bDiv);
-        numPanel.add(bCancel);
-        numPanel.add(bFour);
-        numPanel.add(bFive);
-        numPanel.add(bSix);
-        numPanel.add(bMult);
-        numPanel.add(bOne);
-        numPanel.add(bTwo);
-        numPanel.add(bThree);
-        numPanel.add(bMinus);
-        numPanel.add(bZero);
-        numPanel.add(bDot);
-        numPanel.add(bSign);
-        numPanel.add(bPlus);
-        numPanel.add(bEqual);
+        screenPanel.add(bSeven);
+        screenPanel.add(bEight);
+        screenPanel.add(bNine);
+        screenPanel.add(bDiv);
+        screenPanel.add(bCancel);
+        screenPanel.add(bFour);
+        screenPanel.add(bFive);
+        screenPanel.add(bSix);
+        screenPanel.add(bMult);
+        screenPanel.add(bOne);
+        screenPanel.add(bTwo);
+        screenPanel.add(bThree);
+        screenPanel.add(bMinus);
+        screenPanel.add(bZero);
+        screenPanel.add(bDot);
+        screenPanel.add(bSign);
+        screenPanel.add(bPlus);
+        screenPanel.add(bEqual);
 
         screen.setBounds(10, 10, 276, 65);
         /* 1st row */
@@ -151,119 +140,172 @@ public class MyFrame extends JFrame {
         bSign.setBounds(130, 260, 55, 55);
         bPlus.setBounds(190, 260, 45, 55);
 
-        /* disable selecting */
         screen.setSelectedTextColor(Color.black);
         screen.setSelectionColor(getForeground());
+        screen.setEditable(false);
+        screen.setHorizontalAlignment(JTextField.RIGHT);
+        Font screenFont = new Font("Verdana", Font.TRUETYPE_FONT, 34);
+        screen.setFont(screenFont);
     }
 
     private void initListeners() {
-            bOne.addActionListener(new ActionListener() {
+        bOne.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("1");
+            }
+        });
+        bTwo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("2");
+            }
+        });
+        bThree.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("1");
-                }
-            });
-            bTwo.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("2");
-                }
-            });
-            bThree.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("3");
-                }
-            });
-            bFour.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("4");
-                }
-            });
-            bFive.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("5");
-                }
-            });
-            bSix.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("6");
-                }
-            });
-            bSeven.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("7");
-                }
-            });
-            bEight.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("8");
-                }
-            });
-            bNine.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("9");
-                }
-            });
-            bZero.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("0");
-                }
-            });
-            bDot.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey(".");
-                }
-            });
-            bSign.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey("-");
-                }
-            });
-            bDiv.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey(DIV_OPER);
-                }
-            });
-            bMult.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey(MULT_OPER);
-                }
-            });
-            bMinus.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey(MINUS_OPER);
-                }
-            });
-            bPlus.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey(PLUS_OPER);
-                }
-            });
-            bEqual.addActionListener(new ActionListener() {
+                if (!error)
+                    pressedKey("3");
+            }
+        });
+        bFour.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("4");
+            }
+        });
+        bFive.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("5");
+            }
+        });
+        bSix.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("6");
+            }
+        });
+        bSeven.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("7");
+            }
+        });
+        bEight.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("8");
+            }
+        });
+        bNine.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("9");
+            }
+        });
+        bZero.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("0");
+            }
+        });
+        bDot.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey(".");
+            }
+        });
+        bSign.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey("-");
+            }
+        });
+        bDiv.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey(DIV_OPER);
+            }
+        });
+        bMult.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey(MULT_OPER);
+            }
+        });
+        bMinus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey(MINUS_OPER);
+            }
+        });
+        bPlus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey(PLUS_OPER);
+            }
+        });
+        bEqual.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if (!error)
                         pressedKey(EQUAL_OPER);
                 }
             });
+
         bCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 pressedKey(CANCEL_OPER);
             }
         });
+    }
+
+    public void keyDispatcher() {
+        KeyEventDispatcher keyEventDispatcher = new KeyEventDispatcher() {
+            @Override
+            public boolean dispatchKeyEvent(final KeyEvent e) {
+                if (e.getID() == KeyEvent.KEY_PRESSED) {
+                    if (!error) {
+                        if (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                            pressedKey("1");
+                        if (e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_NUMPAD2)
+                            pressedKey("2");
+                        if (e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_NUMPAD3)
+                            pressedKey("3");
+                        if (e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_NUMPAD4)
+                            pressedKey("4");
+                        if (e.getKeyCode() == KeyEvent.VK_5 || e.getKeyCode() == KeyEvent.VK_NUMPAD5)
+                            pressedKey("5");
+                        if (e.getKeyCode() == KeyEvent.VK_6 || e.getKeyCode() == KeyEvent.VK_NUMPAD6)
+                            pressedKey("6");
+                        if (e.getKeyCode() == KeyEvent.VK_7 || e.getKeyCode() == KeyEvent.VK_NUMPAD7)
+                            pressedKey("7");
+                        if (e.getKeyCode() == KeyEvent.VK_8 || e.getKeyCode() == KeyEvent.VK_NUMPAD8)
+                            pressedKey("8");
+                        if (e.getKeyCode() == KeyEvent.VK_9 || e.getKeyCode() == KeyEvent.VK_NUMPAD9)
+                            pressedKey("9");
+                        if (e.getKeyCode() == KeyEvent.VK_0 || e.getKeyCode() == KeyEvent.VK_NUMPAD0)
+                            pressedKey("0");
+                        if (e.getKeyCode() == KeyEvent.VK_COMMA || e.getKeyCode() == KeyEvent.VK_PERIOD ||
+                                e.getKeyCode() == KeyEvent.VK_DECIMAL)
+                            pressedKey(".");
+                        if (e.getKeyCode() == KeyEvent.VK_ADD)
+                            pressedKey(PLUS_OPER);
+                        if (e.getKeyCode() == KeyEvent.VK_MULTIPLY)
+                            pressedKey(MULT_OPER);
+                        if (e.getKeyCode() == KeyEvent.VK_DIVIDE)
+                            pressedKey(DIV_OPER);
+                        if (e.getKeyCode() == KeyEvent.VK_SUBTRACT)
+                            pressedKey(MINUS_OPER);
+                        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                            pressedKey(EQUAL_OPER);
+                    }
+                    if (e.getKeyCode() == KeyEvent.VK_DELETE)
+                        pressedKey(CANCEL_OPER);
+                }
+                return false;
+            }
+        };
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(keyEventDispatcher);
     }
 
     private String parseDot0(String str) {
@@ -402,6 +444,9 @@ public class MyFrame extends JFrame {
     public static void main(String[] args) {
         MyFrame app = new MyFrame();
         app.setBounds(0,0,295,325);
+        app.setLocationRelativeTo(null);
+        app.setResizable(false);
+        app.setUndecorated(false);
         app.setVisible(true);
     }
 }
