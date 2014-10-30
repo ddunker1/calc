@@ -11,15 +11,17 @@ public class MyFrame extends JFrame {
     private String secondNum = "";
     private String tmpSecondNum = "";
     private String tmpOper = "";
+    private String prevScreen = "";
     boolean error = false;
-    boolean isOperationButtonWasPressed = false;
-    boolean isResult = false;
+    boolean letsAddNewNumber = false;
+    boolean isAnswer = false;
     private final static String PLUS_OPER = "PLUS";
     private final static String MINUS_OPER = "MINUS";
     private final static String DIV_OPER = "DIV";
     private final static String MULT_OPER = "MULT";
     private final static String CANCEL_OPER = "CANCEL";
     private final static String EQUAL_OPER = "EQUAL";
+    private final static String BACKSPACE_OPER = "BACKSPACE";
     private JTextField screen;
     private JButton bOne;   //1
     private JButton bTwo;   //2
@@ -39,8 +41,9 @@ public class MyFrame extends JFrame {
     private JButton bEqual; //=
     private JButton bSign;  //+/-
     private JButton bCancel;//C
+    private JButton bBack;  //back
 
-    public MyFrame() {
+    private MyFrame() {
         super("Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createGUI();
@@ -48,7 +51,7 @@ public class MyFrame extends JFrame {
         keyDispatcher();
     }
 
-    public void createGUI() {
+    private void createGUI() {
         screen = new JTextField("0");
         bOne = new JButton("1");
         bTwo = new JButton("2");
@@ -68,6 +71,7 @@ public class MyFrame extends JFrame {
         bEqual = new JButton("=");
         bSign = new JButton("+/-");
         bCancel = new JButton("C");
+        bBack = new JButton("<");
 
         /* !!! issue #3 */
         bSign.setEnabled(false);
@@ -91,6 +95,7 @@ public class MyFrame extends JFrame {
         bEqual.setFocusPainted(false);
         bSign.setFocusPainted(false);
         bCancel.setFocusPainted(false);
+        bBack.setFocusPainted(false);
 
         JPanel screenPanel = new JPanel();
         screenPanel.setLayout(null);
@@ -115,6 +120,7 @@ public class MyFrame extends JFrame {
         screenPanel.add(bSign);
         screenPanel.add(bPlus);
         screenPanel.add(bEqual);
+        screenPanel.add(bBack);
 
         screen.setBounds(10, 10, 276, 65);
         /* 1st row */
@@ -122,12 +128,13 @@ public class MyFrame extends JFrame {
         bEight.setBounds(70, 80, 55, 55);
         bNine.setBounds(130, 80, 55, 55);
         bDiv.setBounds(190, 80, 45, 55);
-        bCancel.setBounds(240, 80, 45, 115);
+        bCancel.setBounds(240, 80, 45, 55);
         /* 2nd row */
         bFour.setBounds(10, 140, 55, 55);
         bFive.setBounds(70, 140, 55, 55);
         bSix.setBounds(130, 140, 55, 55);
         bMult.setBounds(190, 140, 45, 55);
+        bBack.setBounds(240, 140, 45, 55);
         /* 3rd row */
         bOne.setBounds(10, 200, 55, 55);
         bTwo.setBounds(70, 200, 55, 55);
@@ -162,7 +169,7 @@ public class MyFrame extends JFrame {
             }
         });
         bThree.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 if (!error)
                     pressedKey("3");
             }
@@ -246,20 +253,24 @@ public class MyFrame extends JFrame {
             }
         });
         bEqual.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (!error)
-                        pressedKey(EQUAL_OPER);
-                }
-            });
-
+            public void actionPerformed(ActionEvent e) {
+                if (!error)
+                    pressedKey(EQUAL_OPER);
+            }
+        });
         bCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 pressedKey(CANCEL_OPER);
             }
         });
+        bBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                pressedKey(BACKSPACE_OPER);
+            }
+        });
     }
 
-    public void keyDispatcher() {
+    private void keyDispatcher() {
         KeyEventDispatcher keyEventDispatcher = new KeyEventDispatcher() {
             @Override
             public boolean dispatchKeyEvent(final KeyEvent e) {
@@ -301,6 +312,8 @@ public class MyFrame extends JFrame {
                     }
                     if (e.getKeyCode() == KeyEvent.VK_DELETE)
                         pressedKey(CANCEL_OPER);
+                    if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE)
+                        pressedKey(BACKSPACE_OPER);
                 }
                 return false;
             }
@@ -329,52 +342,53 @@ public class MyFrame extends JFrame {
     }
 
     private void display(String instruction) {
-        String out = "";
-        if (!isOperationButtonWasPressed) {
-            if (isResult) {
-                isResult = false;
-                screen.setText("");
-            }
-            if (!instruction.equals(".")) {
-                if (!screen.getText().equals("0"))
-                    out = screen.getText() + instruction;
-                else out = instruction;
-            } else {
-                if (screen.getText().equals("")) {
-                    out = "0.";
-                } else if (!screen.getText().contains(".")) {
-                    out = screen.getText() + instruction;
-                } else {
-                    out = screen.getText();
-                }
-            }
-        } else {
-            isOperationButtonWasPressed = false;
-            if (instruction.equals("."))
-                out = "0" + instruction;
+        String out;
+        if (letsAddNewNumber) {
+            screen.setText("");
+            letsAddNewNumber = false;
+        }
+        if (!instruction.equals(".")) {
+            if (!screen.getText().equals("0"))
+                out = screen.getText() + instruction;
             else out = instruction;
-            isResult = false;
+        } else {
+            if (screen.getText().equals("")) {
+                out = "0.";
+            } else if (!screen.getText().contains(".")) {
+                out = screen.getText() + instruction;
+            } else {
+                out = screen.getText();
+            }
         }
         if (out.contains(".")) {
             int intPartLength = out.substring(0, out.indexOf(".")).length();
             int fractPartLength = out.substring(out.indexOf(".")).length();
-            if (intPartLength + fractPartLength >= 12) {
-                if (fractPartLength < 2 || intPartLength == 11) {
-                    out = out.substring(0, 11);
+            if (intPartLength + fractPartLength > 10) {
+                if (intPartLength >= 10) {
+                    out = out.substring(0, 10);
+                    if (isAnswer) {
+                        out = "e" + out + ".";
+                        error = true;
+                        isAnswer = false;
+                    }
                 } else {
-                    out = out.substring(0, 12);
+                    out = out.substring(0, 11);
                 }
             }
-        } else if (out.length() > 12) {
-            out = "e" + out;
-            out = out.substring(0, 12);
-            error = true;
+        } else if (out.length() > 11) {
+            out = out.substring(0, 11);
+            if (isAnswer) {
+                out = "e" + out;
+                error = true;
+                isAnswer = false;
+            }
         }
         if (out.contains("E")) {
-            out = "e";
+            out = "e" + prevScreen;
             error = true;
         }
         screen.setText(out);
+        prevScreen = screen.getText();
     }
 
     private void pressedKey(String instruction) {
@@ -389,14 +403,16 @@ public class MyFrame extends JFrame {
                 if (tmpSecondNum.length() == 0)
                     tmpSecondNum = secondNum;
                 secondNum = tmpSecondNum;
-                isOperationButtonWasPressed = true;
+                letsAddNewNumber = true;
+                isAnswer = true;
                 display(parseDot0(doCalc(firstNum, secondNum, tmpOper)));
                 firstNum = screen.getText();
-                isResult = true;
             } else if (instruction.equals(CANCEL_OPER)) {
                 clearParams();
+            } else if (instruction.equals(BACKSPACE_OPER)) {
+                backSpace();
             } else {
-                isOperationButtonWasPressed = true;
+                letsAddNewNumber = true;
                 firstNum = screen.getText();
                 tmpOper = instruction;
                 tmpSecondNum = "";
@@ -404,10 +420,10 @@ public class MyFrame extends JFrame {
         }
     }
 
-    public String doCalc(String firstNum, String secondNum, String operation) {
+    private String doCalc(String firstNum, String secondNum, String operation) {
         String result = "";
-            BigDecimal f = new BigDecimal(firstNum);
-            BigDecimal s = new BigDecimal(secondNum);
+        BigDecimal f = new BigDecimal(firstNum);
+        BigDecimal s = new BigDecimal(secondNum);
         if (operation.equals(PLUS_OPER)) {
             f = f.add(s);
             result = String.valueOf(f);
@@ -424,21 +440,33 @@ public class MyFrame extends JFrame {
         return result;
     }
 
-    public boolean isOperation(String instruction) {
+    private boolean isOperation(String instruction) {
         boolean isOper = false;
         if (instruction.equals(EQUAL_OPER) || instruction.equals(CANCEL_OPER) || instruction.equals(PLUS_OPER) ||
-                instruction.equals(MINUS_OPER) || instruction.equals(DIV_OPER) || instruction.equals(MULT_OPER)) {
+                instruction.equals(MINUS_OPER) || instruction.equals(DIV_OPER) || instruction.equals(MULT_OPER) ||
+                instruction.equals(BACKSPACE_OPER)) {
             isOper = true;
         }
         return isOper;
     }
 
-    public void clearParams() {
+    private void clearParams() {
         firstNum = "";
         secondNum = "";
         tmpSecondNum = "";
         error = false;
         screen.setText("0");
+    }
+
+    private void backSpace() {
+        if (error) {
+            error = false;
+            screen.setText(screen.getText().substring(1));
+        } else {
+            if (screen.getText().length() > 1)
+                screen.setText(screen.getText().substring(0, screen.getText().length() - 1));
+            else screen.setText("0");
+        }
     }
 
     public static void main(String[] args) {
