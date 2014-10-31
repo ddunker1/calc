@@ -90,12 +90,10 @@ public class Main {
         pane.add(bCancel);
         pane.add(bBack);
 
-        Insets insets = pane.getInsets();
-
         /* 0 row */
-        screen.setBounds(10, 10+ insets.top, 276, 65);
+        screen.setBounds(10, 10, 276, 65);
         /* 1st row */
-        bSeven.setBounds(10 + insets.left, 80 + insets.top, 55, 55);
+        bSeven.setBounds(10, 80, 55, 55);
         bEight.setBounds(70, 80, 55, 55);
         bNine.setBounds(130, 80, 55, 55);
         bDiv.setBounds(190, 80, 45, 55);
