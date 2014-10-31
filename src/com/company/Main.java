@@ -6,15 +6,15 @@ import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import javax.swing.*;
 
-public class MyFrame extends JFrame {
-    private String firstNum = "";
-    private String secondNum = "";
-    private String tmpSecondNum = "";
-    private String tmpOper = "";
-    private String prevScreen = "";
-    boolean error = false;
-    boolean letsAddNewNumber = false;
-    boolean isAnswer = false;
+public class Main {
+    private static String firstNum = "";
+    private static String secondNum = "";
+    private static String tmpSecondNum = "";
+    private static String tmpOper = "";
+    private static String prevScreen = "";
+    static boolean error = false;
+    static boolean letsAddNewNumber = false;
+    static boolean isAnswer = false;
     private final static String PLUS_OPER = "PLUS";
     private final static String MINUS_OPER = "MINUS";
     private final static String DIV_OPER = "DIV";
@@ -22,61 +22,33 @@ public class MyFrame extends JFrame {
     private final static String CANCEL_OPER = "CANCEL";
     private final static String EQUAL_OPER = "EQUAL";
     private final static String BACKSPACE_OPER = "BACKSPACE";
-    private JTextField screen;
-    private JButton bOne;   //1
-    private JButton bTwo;   //2
-    private JButton bThree; //3
-    private JButton bFour;  //4
-    private JButton bFive;  //5
-    private JButton bSix;   //6
-    private JButton bSeven; //7
-    private JButton bEight; //8
-    private JButton bNine;  //9
-    private JButton bDot;   //,
-    private JButton bZero;  //0
-    private JButton bMinus; //-
-    private JButton bPlus;  //+
-    private JButton bMult;  //*
-    private JButton bDiv;   ///
-    private JButton bEqual; //=
-    private JButton bSign;  //+/-
-    private JButton bCancel;//C
-    private JButton bBack;  //back
+    private static JTextField screen = new JTextField("0");
+    private static JButton bOne = new JButton("1");
+    private static JButton bTwo = new JButton("2");
+    private static JButton bThree = new JButton("3");
+    private static JButton bFour = new JButton("4");
+    private static JButton bFive = new JButton("5");
+    private static JButton bSix = new JButton("6");
+    private static JButton bSeven = new JButton("7");
+    private static JButton bEight = new JButton("8");
+    private static JButton bNine = new JButton("9");
+    private static JButton bDot = new JButton(",");
+    private static JButton bZero = new JButton("0");
+    private static JButton bMinus = new JButton("-");
+    private static JButton bPlus = new JButton("+");
+    private static JButton bMult = new JButton("*");
+    private static JButton bDiv = new JButton("/");
+    private static JButton bEqual = new JButton("=");
+    private static JButton bSign = new JButton("+/-");
+    private static JButton bCancel = new JButton("C");
+    private static JButton bBack = new JButton("<");
 
-    private MyFrame() {
-        super("Calculator");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        createGUI();
-        initListeners();
-        keyDispatcher();
-    }
-
-    private void createGUI() {
-        screen = new JTextField("0");
-        bOne = new JButton("1");
-        bTwo = new JButton("2");
-        bThree = new JButton("3");
-        bFour = new JButton("4");
-        bFive = new JButton("5");
-        bSix = new JButton("6");
-        bSeven = new JButton("7");
-        bEight = new JButton("8");
-        bNine = new JButton("9");
-        bDot = new JButton(",");
-        bZero = new JButton("0");
-        bMinus = new JButton("-");
-        bPlus = new JButton("+");
-        bMult = new JButton("*");
-        bDiv = new JButton("/");
-        bEqual = new JButton("=");
-        bSign = new JButton("+/-");
-        bCancel = new JButton("C");
-        bBack = new JButton("<");
+    private static void addComponents(Container pane) {
+        pane.setLayout(null);
 
         /* !!! issue #3 */
         bSign.setEnabled(false);
 
-        /* issue #9 */
         bOne.setFocusPainted(false);
         bTwo.setFocusPainted(false);
         bThree.setFocusPainted(false);
@@ -97,34 +69,33 @@ public class MyFrame extends JFrame {
         bCancel.setFocusPainted(false);
         bBack.setFocusPainted(false);
 
-        JPanel screenPanel = new JPanel();
-        screenPanel.setLayout(null);
-        add(screenPanel);
+        pane.add(screen);
+        pane.add(bOne);
+        pane.add(bTwo);
+        pane.add(bThree);
+        pane.add(bFour);
+        pane.add(bFive);
+        pane.add(bSix);
+        pane.add(bSeven);
+        pane.add(bEight);
+        pane.add(bNine);
+        pane.add(bDot);
+        pane.add(bZero);
+        pane.add(bMinus);
+        pane.add(bPlus);
+        pane.add(bMult);
+        pane.add(bDiv);
+        pane.add(bEqual);
+        pane.add(bSign);
+        pane.add(bCancel);
+        pane.add(bBack);
 
-        screenPanel.add(screen);
-        screenPanel.add(bSeven);
-        screenPanel.add(bEight);
-        screenPanel.add(bNine);
-        screenPanel.add(bDiv);
-        screenPanel.add(bCancel);
-        screenPanel.add(bFour);
-        screenPanel.add(bFive);
-        screenPanel.add(bSix);
-        screenPanel.add(bMult);
-        screenPanel.add(bOne);
-        screenPanel.add(bTwo);
-        screenPanel.add(bThree);
-        screenPanel.add(bMinus);
-        screenPanel.add(bZero);
-        screenPanel.add(bDot);
-        screenPanel.add(bSign);
-        screenPanel.add(bPlus);
-        screenPanel.add(bEqual);
-        screenPanel.add(bBack);
+        Insets insets = pane.getInsets();
 
-        screen.setBounds(10, 10, 276, 65);
+        /* 0 row */
+        screen.setBounds(10, 10+ insets.top, 276, 65);
         /* 1st row */
-        bSeven.setBounds(10, 80, 55, 55);
+        bSeven.setBounds(10 + insets.left, 80 + insets.top, 55, 55);
         bEight.setBounds(70, 80, 55, 55);
         bNine.setBounds(130, 80, 55, 55);
         bDiv.setBounds(190, 80, 45, 55);
@@ -148,14 +119,38 @@ public class MyFrame extends JFrame {
         bPlus.setBounds(190, 260, 45, 55);
 
         screen.setSelectedTextColor(Color.black);
-        screen.setSelectionColor(getForeground());
+        screen.setForeground(Color.black);
+        screen.setSelectionColor(Color.white);
+        screen.setBackground(Color.white);
         screen.setEditable(false);
         screen.setHorizontalAlignment(JTextField.RIGHT);
         Font screenFont = new Font("Verdana", Font.TRUETYPE_FONT, 34);
         screen.setFont(screenFont);
     }
 
-    private void initListeners() {
+    private static void createGUI() {
+        JFrame frame = new JFrame("Calculator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        addComponents(frame.getContentPane());
+
+        frame.setResizable(false);
+        if (System.getProperty("os.name").contains("Linux")){
+            frame.setSize(295, 325);
+        } else {
+            frame.setSize(300, 355);
+        }
+
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension screenSize = tk.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+        frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
+        frame.setVisible(true);
+
+    }
+
+    private static void initListeners() {
         bOne.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!error)
@@ -270,7 +265,7 @@ public class MyFrame extends JFrame {
         });
     }
 
-    private void keyDispatcher() {
+    private static void keyDispatcher() {
         KeyEventDispatcher keyEventDispatcher = new KeyEventDispatcher() {
             @Override
             public boolean dispatchKeyEvent(final KeyEvent e) {
@@ -321,7 +316,7 @@ public class MyFrame extends JFrame {
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(keyEventDispatcher);
     }
 
-    private String parseDot0(String str) {
+    private static String parseDot0(String str) {
         String integerPart;
         String fractionalPart;
         if (str.contains(".") && !str.contains("E")) {
@@ -341,7 +336,7 @@ public class MyFrame extends JFrame {
         return str;
     }
 
-    private void display(String instruction) {
+    private static void display(String instruction) {
         String out;
         if (letsAddNewNumber) {
             screen.setText("");
@@ -365,7 +360,9 @@ public class MyFrame extends JFrame {
             int fractPartLength = out.substring(out.indexOf(".")).length();
             if (intPartLength + fractPartLength > 10) {
                 if (intPartLength >= 10) {
-                    out = out.substring(0, 10);
+                    if (intPartLength == 10 && fractPartLength >= 1)
+                        out = out.substring(0, 10);
+                    else out = out.substring(0, 11);
                     if (isAnswer) {
                         out = "e" + out + ".";
                         error = true;
@@ -391,7 +388,7 @@ public class MyFrame extends JFrame {
         prevScreen = screen.getText();
     }
 
-    private void pressedKey(String instruction) {
+    private static void pressedKey(String instruction) {
         /* number button was pressed */
         if (!isOperation(instruction)) {
             display(instruction);
@@ -420,7 +417,7 @@ public class MyFrame extends JFrame {
         }
     }
 
-    private String doCalc(String firstNum, String secondNum, String operation) {
+    private static String doCalc(String firstNum, String secondNum, String operation) {
         String result = "";
         BigDecimal f = new BigDecimal(firstNum);
         BigDecimal s = new BigDecimal(secondNum);
@@ -440,7 +437,7 @@ public class MyFrame extends JFrame {
         return result;
     }
 
-    private boolean isOperation(String instruction) {
+    private static boolean isOperation(String instruction) {
         boolean isOper = false;
         if (instruction.equals(EQUAL_OPER) || instruction.equals(CANCEL_OPER) || instruction.equals(PLUS_OPER) ||
                 instruction.equals(MINUS_OPER) || instruction.equals(DIV_OPER) || instruction.equals(MULT_OPER) ||
@@ -450,7 +447,7 @@ public class MyFrame extends JFrame {
         return isOper;
     }
 
-    private void clearParams() {
+    private static void clearParams() {
         firstNum = "";
         secondNum = "";
         tmpSecondNum = "";
@@ -458,7 +455,7 @@ public class MyFrame extends JFrame {
         screen.setText("0");
     }
 
-    private void backSpace() {
+    private static void backSpace() {
         if (error) {
             error = false;
             screen.setText(screen.getText().substring(1));
@@ -470,11 +467,8 @@ public class MyFrame extends JFrame {
     }
 
     public static void main(String[] args) {
-        MyFrame app = new MyFrame();
-        app.setBounds(0,0,295,325);
-        app.setLocationRelativeTo(null);
-        app.setResizable(false);
-        app.setUndecorated(false);
-        app.setVisible(true);
+        createGUI();
+        initListeners();
+        keyDispatcher();
     }
 }
