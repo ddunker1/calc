@@ -39,7 +39,7 @@ public class Main {
     private static JButton bMult = new JButton("*");
     private static JButton bDiv = new JButton("/");
     private static JButton bEqual = new JButton("=");
-    private static JButton bSign = new JButton("+/-");
+    private static JButton bPercent = new JButton("%");
     private static JButton bCancel = new JButton("C");
     private static JButton bBack = new JButton("<");
 
@@ -47,7 +47,7 @@ public class Main {
         pane.setLayout(null);
 
         /* !!! issue #3 */
-        bSign.setEnabled(false);
+        bPercent.setEnabled(false);
 
         bOne.setFocusPainted(false);
         bTwo.setFocusPainted(false);
@@ -65,7 +65,7 @@ public class Main {
         bMult.setFocusPainted(false);
         bDiv.setFocusPainted(false);
         bEqual.setFocusPainted(false);
-        bSign.setFocusPainted(false);
+        bPercent.setFocusPainted(false);
         bCancel.setFocusPainted(false);
         bBack.setFocusPainted(false);
 
@@ -86,7 +86,7 @@ public class Main {
         pane.add(bMult);
         pane.add(bDiv);
         pane.add(bEqual);
-        pane.add(bSign);
+        pane.add(bPercent);
         pane.add(bCancel);
         pane.add(bBack);
 
@@ -113,7 +113,7 @@ public class Main {
         /* 4th row */
         bZero.setBounds(10, 260, 55, 55);
         bDot.setBounds(70, 260, 55, 55);
-        bSign.setBounds(130, 260, 55, 55);
+        bPercent.setBounds(130, 260, 55, 55);
         bPlus.setBounds(190, 260, 45, 55);
 
         screen.setSelectedTextColor(Color.black);
@@ -215,7 +215,7 @@ public class Main {
                     pressedKey(".");
             }
         });
-        bSign.addActionListener(new ActionListener() {
+        bPercent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!error)
                     pressedKey("-");
