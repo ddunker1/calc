@@ -39,7 +39,7 @@ public class Main {
     private static JButton bMult = new JButton("*");
     private static JButton bDiv = new JButton("/");
     private static JButton bEqual = new JButton("=");
-    private static JButton bSign = new JButton("+/-");
+    private static JButton bPercent = new JButton("%");
     private static JButton bCancel = new JButton("C");
     private static JButton bBack = new JButton("<");
 
@@ -47,7 +47,7 @@ public class Main {
         pane.setLayout(null);
 
         /* !!! issue #3 */
-        bSign.setEnabled(false);
+        bPercent.setEnabled(false);
 
         bOne.setFocusPainted(false);
         bTwo.setFocusPainted(false);
@@ -65,7 +65,7 @@ public class Main {
         bMult.setFocusPainted(false);
         bDiv.setFocusPainted(false);
         bEqual.setFocusPainted(false);
-        bSign.setFocusPainted(false);
+        bPercent.setFocusPainted(false);
         bCancel.setFocusPainted(false);
         bBack.setFocusPainted(false);
 
@@ -86,16 +86,14 @@ public class Main {
         pane.add(bMult);
         pane.add(bDiv);
         pane.add(bEqual);
-        pane.add(bSign);
+        pane.add(bPercent);
         pane.add(bCancel);
         pane.add(bBack);
 
-        Insets insets = pane.getInsets();
-
         /* 0 row */
-        screen.setBounds(10, 10+ insets.top, 276, 65);
+        screen.setBounds(10, 10, 276, 65);
         /* 1st row */
-        bSeven.setBounds(10 + insets.left, 80 + insets.top, 55, 55);
+        bSeven.setBounds(10, 80, 55, 55);
         bEight.setBounds(70, 80, 55, 55);
         bNine.setBounds(130, 80, 55, 55);
         bDiv.setBounds(190, 80, 45, 55);
@@ -115,7 +113,7 @@ public class Main {
         /* 4th row */
         bZero.setBounds(10, 260, 55, 55);
         bDot.setBounds(70, 260, 55, 55);
-        bSign.setBounds(130, 260, 55, 55);
+        bPercent.setBounds(130, 260, 55, 55);
         bPlus.setBounds(190, 260, 45, 55);
 
         screen.setSelectedTextColor(Color.black);
@@ -217,7 +215,7 @@ public class Main {
                     pressedKey(".");
             }
         });
-        bSign.addActionListener(new ActionListener() {
+        bPercent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!error)
                     pressedKey("-");
@@ -336,25 +334,56 @@ public class Main {
         return str;
     }
 
-    private static void display(String instruction) {
+    private static void displayResult(String result) {
+        String out;
+        clearScreen();
+        out = dotsCountChecker(result);
+        out = trim(out, true);
+        out = expChecker(out);
+        screen.setText(out);
+        prevScreen = screen.getText();
+    }
+
+    private static void displayOperand(String operand) {
         String out;
         if (letsAddNewNumber) {
-            screen.setText("");
+            clearScreen();
             letsAddNewNumber = false;
         }
-        if (!instruction.equals(".")) {
+        out = dotsCountChecker(operand);
+        out = trim(out, false);
+        out = expChecker(out);
+        screen.setText(out);
+        prevScreen = screen.getText();
+    }
+
+    private static String dotsCountChecker(String in) {
+        String out;
+        if (!in.equals(".")) {
             if (!screen.getText().equals("0"))
-                out = screen.getText() + instruction;
-            else out = instruction;
+                out = screen.getText() + in;
+            else out = in;
         } else {
             if (screen.getText().equals("")) {
                 out = "0.";
             } else if (!screen.getText().contains(".")) {
-                out = screen.getText() + instruction;
+                out = screen.getText() + in;
             } else {
                 out = screen.getText();
             }
         }
+        return out;
+    }
+
+    private static String expChecker (String in) {
+        if (in.contains("E")) {
+            in = "e" + prevScreen;
+            error = true;
+        }
+        return in;
+    }
+
+    private static String trim(String out, boolean isAnswer) {
         if (out.contains(".")) {
             int intPartLength = out.substring(0, out.indexOf(".")).length();
             int fractPartLength = out.substring(out.indexOf(".")).length();
@@ -366,7 +395,6 @@ public class Main {
                     if (isAnswer) {
                         out = "e" + out + ".";
                         error = true;
-                        isAnswer = false;
                     }
                 } else {
                     out = out.substring(0, 11);
@@ -377,21 +405,15 @@ public class Main {
             if (isAnswer) {
                 out = "e" + out;
                 error = true;
-                isAnswer = false;
             }
         }
-        if (out.contains("E")) {
-            out = "e" + prevScreen;
-            error = true;
-        }
-        screen.setText(out);
-        prevScreen = screen.getText();
+        return out;
     }
 
     private static void pressedKey(String instruction) {
         /* number button was pressed */
         if (!isOperation(instruction)) {
-            display(instruction);
+            displayOperand(instruction);
         }
         /* operation button was pressed */
         else {
@@ -400,10 +422,9 @@ public class Main {
                 if (tmpSecondNum.length() == 0)
                     tmpSecondNum = secondNum;
                 secondNum = tmpSecondNum;
-                letsAddNewNumber = true;
-                isAnswer = true;
-                display(parseDot0(doCalc(firstNum, secondNum, tmpOper)));
+                displayResult(parseDot0(doCalc(firstNum, secondNum, tmpOper)));
                 firstNum = screen.getText();
+                letsAddNewNumber = true;
             } else if (instruction.equals(CANCEL_OPER)) {
                 clearParams();
             } else if (instruction.equals(BACKSPACE_OPER)) {
@@ -456,6 +477,8 @@ public class Main {
     }
 
     private static void backSpace() {
+        if (letsAddNewNumber)
+            return;
         if (error) {
             error = false;
             screen.setText(screen.getText().substring(1));
@@ -464,6 +487,10 @@ public class Main {
                 screen.setText(screen.getText().substring(0, screen.getText().length() - 1));
             else screen.setText("0");
         }
+    }
+
+    private static void clearScreen() {
+        screen.setText("");
     }
 
     public static void main(String[] args) {
