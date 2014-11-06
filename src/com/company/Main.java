@@ -32,7 +32,7 @@ public class Main {
     private static JButton bSeven = new JButton("7");
     private static JButton bEight = new JButton("8");
     private static JButton bNine = new JButton("9");
-    private static JButton bDot = new JButton(",");
+    private static JButton bDot = new JButton(".");
     private static JButton bZero = new JButton("0");
     private static JButton bMinus = new JButton("-");
     private static JButton bPlus = new JButton("+");
@@ -111,10 +111,14 @@ public class Main {
         bMinus.setBounds(190, 200, 45, 55);
         bEqual.setBounds(240, 200, 45, 115);
         /* 4th row */
-        bZero.setBounds(10, 260, 55, 55);
-        bDot.setBounds(70, 260, 55, 55);
-        bPercent.setBounds(130, 260, 55, 55);
+//        bZero.setBounds(10, 260, 55, 55);
+//        bDot.setBounds(70, 260, 55, 55);
+//        bPercent.setBounds(130, 260, 55, 55);
         bPlus.setBounds(190, 260, 45, 55);
+
+        bPercent.setVisible(false);
+        bDot.setBounds(130, 260, 55, 55);
+        bZero.setBounds(10, 260, 115, 55);
 
         screen.setSelectedTextColor(Color.black);
         screen.setForeground(Color.black);
