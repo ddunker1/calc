@@ -14,7 +14,6 @@ public class Main {
     private static String prevScreen = "";
     static boolean error = false;
     static boolean letsAddNewNumber = false;
-    static boolean isAnswer = false;
     private final static String PLUS_OPER = "PLUS";
     private final static String MINUS_OPER = "MINUS";
     private final static String DIV_OPER = "DIV";
@@ -41,7 +40,7 @@ public class Main {
     private static JButton bEqual = new JButton("=");
     private static JButton bPercent = new JButton("%");
     private static JButton bCancel = new JButton("C");
-    private static JButton bBack = new JButton("<");
+    private static JButton bBack = new JButton("←");
 
     private static void addComponents(Container pane) {
         pane.setLayout(null);
@@ -219,12 +218,12 @@ public class Main {
                     pressedKey(".");
             }
         });
-        bPercent.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (!error)
-                    pressedKey("-");
-            }
-        });
+//        bPercent.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                if (!error)
+//                    pressedKey("%");
+//            }
+//        });
         bDiv.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!error)
